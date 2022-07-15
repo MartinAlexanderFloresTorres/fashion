@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- css -->
+    <link rel="stylesheet" href="src/css/styles.css">
+    <!-- iconos -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <!--===== preload =====-->
+    <link rel="preload" href="src/css/styles.css" as="style">
+    <link rel="preload" href="src/js/data.js" as="script">
+    <link rel="preload" href="src/js/app.js" as="script">
+    <link rel="preload" href="src/img/Ropa/chaqueta7.webp" as="image">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css" as="style">
+    <link rel="shortcut icon" href="src/img/Ropa/chaqueta7.webp" type="image/x-icon">
+
+    <title>Fashion</title>
+</head>
+<body>
+    
+    <!--===== HEADER =====-->
+    <header class="header">
+       <section class="header__contenedor">
+            <div class="header__menu">
+                <i class='bx bx-menu' id="menu"></i>
+            </div>
+            <a href="#" class="header__logo">
+                <i class='bx bxs-store header__ico'></i>
+                <h2 class="carrito__name">Fashion</h2>
+            </a>
+            <div class="header__items">
+                <nav class="header__navegacion">
+                    <a class="header__link bold" href="#novedades">Hombre</a>
+                    <a class="header__link bold" href="#novedades">mujer</a>
+                    <a class="header__link bold" href="#novedades">niños</a>
+                    <a class="header__link" href="#mostrarProductos">productos</a>
+                    <a class="header__link" href="#marcas">marcas</a>
+                    <a class="header__link" href="#colecciones">colecciones</a>
+                </nav>
+            </div>
+            <div class="header__iconosBusqueda">
+                <div class="header__busqueda">
+                    <input class="header__buscar" id="buscarUno" type="text" placeholder="Buscar">
+                    <i class='bx bx-search header__ico'></i>
+                </div>
+
+                <div class="busquedaFixed" id="busquedaFixed">
+                    <div class="busquedaFixed__busqueda">
+                        <i class='bx bx-chevron-left header__chevron' id="busquedaFixedChevron"></i>
+                        <input class="busquedaFixed__buscar" id="buscarDos" type="text">
+                        <i class='bx bx-search header__ico'></i>
+                    </div>
+                    <div class="productos productos--dos" id="resultadoBusquedad"></div>
+                </div>
+
+                <div class="header__iconos">
+                    <div class="header__ico--desaparecer">
+                        <i class='bx bx-search header__ico' id="buscarToggle"></i>
+                    </div>
+                    <i class='bx bx-user header__ico' id="toggleUser"></i>
+                    <i class='bx bx-heart header__ico' id="header-favoritosIco"><span class="carritoSpan" id="contador-favoritos"></span></i>
+                    <i class='bx bx-shopping-bag header__ico' id="carritoBtn"><span class="carritoSpan" id="contador-card"></span></i>
+                </div>
+            </div>
+       </section>
+    </header>
+
+    <!--===== user =====-->
+    <section class="user" id="user">
+        <p class="user__item"><i class='bx bxs-user-account'></i><span class="user__span">Martin Flores Programador</span></p>
+        <p class="user__item"><i class='bx bxl-gmail' ></i><span class="user__span">correo@correo.com</span></p>
+        <p class="user__item"><i class='bx bxs-user-check'></i><span class="user__span">Verificado</span></p>
+        <a href="#" class="user__item"><i class='bx bxl-facebook'></i><span class="user__span">Martin Flores</span></a>
+        <a href="#" class="user__item"><i class='bx bxl-instagram' ></i><span class="user__span">@martin_flores_28</span></a>
+        <a href="#" class="user__item"><i class='bx bxl-youtube' ></i><span class="user__span">White Code</span></a>
+        <a href="#" class="user__item"><i class='bx bxl-github' ></i><span class="user__span">Martin Flores Torres</span></a>
+        <a href="#" class="user__item"><i class='bx bx-bell'></i><span class="user__span">Notificaciones</span></a>
+        <button class="user__tema" id="thema">
+            <div class="user__modo">
+                <i class='bx bx-moon user__moon'></i>
+                <i class='bx bx-sun user__sun'></i>
+            </div>
+            <span class="user__span">Thema</span>
+        </button>
+          <a href="#" class="user__item"><i class='bx bxs-info-circle'></i><span class="user__span">Informacion</span></a>
+          <a href="#" class="user__item"><i class='bx bxs-music'></i><span class="user__span">Musica</span></a>
+          <a href="#" class="user__item"><i class='bx bxs-cog'></i><span class="user__span">Configuracion</span></a>
+          <a href="#" class="user__item"><i class='bx bx-log-out-circle'></i><span class="user__span">Cerrar Seccion</span></a>
+    </section>
+
+     <!--===== NAVEGACION =====-->
+     <section class="navegacion z__index" id="navegacion">
+        <div class="navegacion__top">    
+            <a href="index.html" class="navegacion__logo">
+                <i class='bx bxs-store header__ico'></i>
+                <h2>Fashion</h2>
+            </a>
+            <i class='bx bx-x navegacion__icono' id="close"></i>
+        </div>
+        <div class="navegacion__center">
+             <div class="navegacion__items">
+                 <div class="navegacion__item bold">Hombre <span class="navegacion__icono"><i class='bx bx-chevron-right'></i></span></div>
+                 <div class="navegacion__item bold">Mujer <span class="navegacion__icono"><i class='bx bx-chevron-right'></i></span></div>
+                 <div class="navegacion__item bold">Niños <span class="navegacion__icono"><i class='bx bx-chevron-right'></i></span></div>
+                 <div class="navegacion__item">Deportes <span class="navegacion__icono"><i class='bx bx-chevron-right'></i></span></div>
+                 <div class="navegacion__item">Marcas <span class="navegacion__icono"><i class='bx bx-chevron-right'></i></span></div>
+                 <div class="navegacion__item">Colecciones <span class="navegacion__icono"><i class='bx bx-chevron-right'></i></span></div>
+             </div>
+             <nav class="navegacion__nav">
+                 <a href="#" class="navegacion__link">Mi Cuenta</a>
+                 <a href="#" class="navegacion__link">Buscador de Tiendas</a>
+                 <a href="#" class="navegacion__link">Ayuda</a>
+                 <a href="#" class="navegacion__link">Solicitar mi Devolucion</a>
+                 <a href="#" class="navegacion__link">Seguimiento de Pedidos</a>
+                 <a href="#" class="navegacion__link">Fashion App</a>
+             </nav>
+        </div>
+        <div class="navegacion__bottom">
+            White Code
+            <i class='bx bx-code-alt navegacion__icoProgramador'></i>
+        </div>
+    </section>
+
+    <section class="navegacion subNavegacion z__index" id="sub-navegacion">
+        <div class="navegacion__top">    
+            <div class="navegacion__logo">
+                <i class='bx bx-chevron-left header__chevron' id="cheveron-subNavegacion"></i>
+                <h2 id="nombre"></h2>
+            </div>
+            <i class='bx bx-x navegacion__icono' id="close-subnavegacion"></i>
+        </div>
+        <div class="navegacion__center">
+             <div class="navegacion__items">
+                 <div class="navegacion__item bold">Pantalones <span class="navegacion__icono"><i class='bx bx-chevron-right'></i></span></div>
+                 <div class="navegacion__item bold">Polos <span class="navegacion__icono"><i class='bx bx-chevron-right'></i></span></div>
+                 <div class="navegacion__item bold">Polares <span class="navegacion__icono"><i class='bx bx-chevron-right'></i></span></div>
+                 <div class="navegacion__item bold">Zapatillas <span class="navegacion__icono"><i class='bx bx-chevron-right'></i></span></div>
+                 <div class="navegacion__item bold">Abrigos <span class="navegacion__icono"><i class='bx bx-chevron-right'></i></span></div>
+                 <div class="navegacion__item bold">Exclusivos <span class="navegacion__icono"><i class='bx bx-chevron-right'></i></span></div>
+             </div>
+             <nav class="navegacion__nav">
+                 <a href="#mostrarProductos" class="navegacion__link">Compra Ya</a>
+                 <a href="#mostrarProductos" class="navegacion__link">Ofertas</a>
+                 <a href="#mostrarProductos" class="navegacion__link">Tendencias</a>
+                 <a href="#mostrarProductos" class="navegacion__link">Regalos</a>
+                 <a href="#mostrarProductos" class="navegacion__link">Descuentos</a>
+                 <a href="#" class="navegacion__link">Enterate</a>
+                 <a href="#mostrarProductos" class="navegacion__link">Productos</a>
+                 <a href="#" class="navegacion__link">Fashion App</a>
+             </nav>
+        </div>
+    </section>
+
+    <section class="navegacion subNavegacionDos z__index" id="sub-navegacionDos">
+        <div class="navegacion__top">    
+            <div class="navegacion__logo">
+                <i class='bx bx-chevron-left header__chevron' id="cheveron-subNavegacionDos"></i>
+                <h2 id="nombreDos"></h2>
+            </div>
+            <i class='bx bx-x navegacion__icono' id="close-subnavegacionDos"></i>
+        </div>
+        <div class="navegacion__center">
+             <nav class="navegacion__nav">
+                 <a href="#mostrarProductos" class="navegacion__link">Alquierelo Ya</a>
+                 <a href="#mostrarProductos" class="navegacion__link">Las mejores ofertas</a>
+                 <a href="#mostrarProductos" class="navegacion__link">Los mejores Descuentos</a>
+                 <a href="#mostrarProductos" class="navegacion__link">Busca tu producto</a>
+                 <a href="#" class="navegacion__link">Mantenete Informado</a>
+                 <a href="#mostrarProductos" class="navegacion__link">Realizar compras</a>
+                 <a href="#mostrarProductos" class="navegacion__link">Ver Productos Destacados</a>
+                 <a href="#" class="navegacion__link">Fashion App</a>
+             </nav>
+        </div>
+    </section>
+
+    <!--===== NOTIFICACION =====-->
+    <div class="notificacion" id="notificacion">
+        <span>Producto Agregado</span>
+    </div>
+
+    <div class="notificacion" id="notificacionDos">
+        <span>Añadido a Favoritos</span>
+    </div>
+
+    <!--===== CARRITO=====-->
+    <section class="carrito z__index" id="carrito">
+        <div class="carrito__contenedor">
+            <div class="carrito__top">
+                <h2 class="carrito__logo"><i class='bx bxs-cart'></i><span class="carrito__name">Carrito</span></h2>
+                <a href="index.html" class="carrito__logo">
+                    <i class='bx bxs-store header__ico'></i>
+                    <h2 class="carrito__name">Fashion</h2>
+                </a>
+                <i class='bx bx-x navegacion__icono carrito__close' id="carritoClose"></i>
+            </div>
+    
+            <div class="carrito__center" id="carrito__resultados">
+                
+            </div>
+    
+            <div class="carrito__bottom">
+                <p class="carrito__totalPagar"><b>Total a Pagar:</b> S/.<span id="totalPago">0</span></p>
+                <button class="carrito__pagar" id="carritoPagarBtn"><i class='bx bx-check-shield carrito__ico'></i> Procesar Pago</button>
+            </div>
+        </div>
+    </section>
+
+    <!--===== FORMULARIO DE PAGO=====-->
+    <section class="carrito z__index formulario__contenedor" id="formulario-contenedor">
+        <div class="carrito__contenedor">
+            <div class="carrito__top">
+                <h2 class="carrito__logo"><i class='bx bx-chevron-left header__chevron' id="formularioRetroceder"></i>Pago Seguro</h2>
+            </div>
+            <form action="" class="formulario" id="formulario-pagar">
+                <input class="formulario__email" type="text" placeholder="Correo">
+                <input class="formulario__nombre" type="text" placeholder="Nombre">
+                <input class="formulario__apellidos" type="text" placeholder="Apellidos">
+                <input class="formulario__direccion" type="text" placeholder="Calle y numero de casa">
+                <input class="formulario__tarjeta" type="text" placeholder="Nombre de Tarjeta">
+                <input class="formulario__numero" type="number" placeholder="Numero de Tarjeta">
+                <input class="formulario__caducidad" type="date" placeholder="Caducidad">
+                <input class="formulario__cvv" type="number" placeholder="CVV2">
+                <input class="formulario__titular" type="text" placeholder="Titular de la Tarjeta">
+                <input class="formulario__ciudad" type="text" placeholder="Ciudad">
+                <input class="formulario__provincia" type="text" placeholder="Provincia">
+                <input class="formulario__codigo" type="number" placeholder="Codigo Postal">
+                <button class="formulario__pagar">Realizar Pago</button>
+           </form>
+
+         <div class="formulario__spiner">
+            <div class="spinner">
+                <div class="rect1"></div>
+                <div class="rect2"></div>
+                <div class="rect3"></div>
+                <div class="rect4"></div>
+                <div class="rect5"></div>
+              </div>
+            </div>
+            <div class="formulario__texto"></div>
+
+        </div>
+    </section>
+
+     <!--===== GUARDADOS =====-->
+     <section class="carrito guardado" id="guardado">
+        <div class="carrito__contenedor">
+            <div class="carrito__top">
+                <h2 class="carrito__logo"><i class='bx bx-heart'></i><span class="carrito__name">Favoritos</span></h2>
+                <a href="index.html" class="carrito__logo">
+                    <i class='bx bxs-store header__ico'></i>
+                    <h2 class="carrito__name">Fashion</h2>
+                </a>
+                <i class='bx bx-x navegacion__icono carrito__close' id="guardado__close"></i>
+            </div>
+
+            <div class="guardado__resultados">
+            </div>
+    </section>
+    <!--===== BANNER =====-->
+    <section class="banner">
+        <div class="banner__contenedor">
+            <div>
+                <h1 class="banner__title">Casacas a la moda x-911</h1>
+                <p class="banner__disponible">ya disponible</p>
+                <a href="#CasacaVerde" class="banner__botom" id="bannerToggle">comprar Ahora <i class='bx bx-chevron-right banner__ico'></i></a>
+            </div>
+            <div class="banner__imagen">
+                <img class="banner__img" src="src/img/Ropa/chaqueta7.webp" alt="casaca" width="100px" height="100px">
+            </div>
+        </div>
+    </section>
+
+    <!--===== MAIN =====-->
+    <main class="contenedor">
+        
+        <!--===== NOVEDADES =====-->
+        <section class="novedades" id="novedades">
+            <div class="polulares">
+                <h2 class="popular__title">POPULAR AHORA</h2>
+                <div class="populares__items">
+                    <a href="#" class="populares__link">materiales reciclados</a>
+                    <a href="#" class="populares__link">terrex</a>
+                    <a href="#" class="populares__link">casacas</a>
+                    <a href="#" class="populares__link">ultraboost</a>
+                    <a href="#" class="populares__link">precio inresistibles</a>
+                </div>
+            </div>
+            
+            <!--===== GENERO =====-->
+            <div class="genero">
+                <h2 class="genero__title">¿PARA QUIÉN COMPRAS?</h2>
+                <div class="genero__items">
+                    <div class="genero__columna">
+                        <img class="genero__imagen" src="src/img/glogables/row2.webp" alt="imagen de ropa" width="100px" height="100px">
+                        <p class="genero__genero">Hombre</p>
+                    </div>
+
+                    <div class="genero__columna">
+                        <img class="genero__imagen" src="src/img/glogables/row3.webp" alt="imagen de ropa" width="100px" height="100px">
+                        <p class="genero__genero">Mujer</p>
+                    </div>
+
+                    <div class="genero__columna">
+                        <img class="genero__imagen" src="src/img/glogables/row1.webp" alt="imagen de ropa" width="100px" height="100px">
+                        <p class="genero__genero">Niño</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--===== FILTRAR =====-->
+        <h2 class="filtarTexto" id="mostrarProductos">Filtrar</h2>
+        <div class="filtrado">
+            <div class="filtrado__item">
+                <p class="filtrado__titulo">Color</p>
+                <select class="filtrado__select" name="color" id="color">
+                    <option value="" selected>---Seleccionar---</option>
+                    <option value="Negro">Negro</option>
+                    <option value="Rojo">Rojo</option>
+                    <option value="Azul">Azul</option>
+                    <option value="Verde">verde</option>
+                    <option value="Celeste">Celeste</option>
+                    <option value="Marron">Marron</option>
+                    <option value="Gris">Gris</option>
+                </select>
+            </div>
+
+            <div class="filtrado__item">
+                <p class="filtrado__titulo">Talla</p>
+                <select class="filtrado__select" name="talla" id="talla">
+                    <option value="" selected>---Seleccionar---</option>
+                    <option value="M">M</option>
+                    <option value="S">S</option>
+                    <option value="L">L</option>
+                </select>
+            </div>
+
+            <div class="filtrado__item">
+                <p class="filtrado__titulo">Precio Minimo</p>
+                <select class="filtrado__select" name="precio-minimo" id="precio-minimo">
+                    <option value="" selected>---Seleccionar---</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                    <option value="200">200</option>
+                    <option value="300">300</option>
+                    <option value="400">400</option>
+                    <option value="500">500</option>
+                </select>
+            </div>
+
+            <div class="filtrado__item">
+                <p class="filtrado__titulo">Precio Maximo</p>
+                <select class="filtrado__select" name="precio-maximo" id="precio-maximo">
+                    <option value="" selected>---Seleccionar---</option>
+                    <option value="500">500</option>
+                    <option value="600">600</option>
+                    <option value="7000">700</option>
+                    <option value="800">800</option>
+                    <option value="2000">1000</option>
+                </select>
+            </div>
+
+            <button class="filtrado__resetear" id="resetearBtn">Resetear</button>    
+        </div>
+
+        <!--===== PRODUCTOS =====-->
+        <section class="productos" id="productos"></section>
+    </main>
+    
+    <!--===== FOOTER =====-->
+    <footer class="footer">
+        <div class="footer__contenido">
+            <div class="footer__top">
+                <h2 class="footer__title">Fashion</h2>
+                <div class="footer__iconos">
+                    <a class="footer__ico" href="#"><i class='bx bxl-facebook'></i></a>
+                    <a class="footer__ico" href="#"><i class='bx bxl-twitter'></i></a>
+                    <a class="footer__ico" href="#"><i class='bx bxl-instagram'></i></a>
+                    <a class="footer__ico" href="#"><i class='bx bxl-youtube'></i></a>
+                </div>
+            </div>
+            <div class="footer__center">
+                <ul>
+                    <li><a class="footer__link" href="#">Conocenos</a></li>
+                    <li><a class="footer__link" href="#">Saber mas</a></li>
+                    <li><a class="footer__link" href="#">Preferencias</a></li>
+                    <li><a class="footer__link" href="#">Formas de pago</a></li>
+                </ul>
+                <ul>
+                    <li><a class="footer__link" href="#">Atencion al cliente</a></li>
+                    <li><a class="footer__link" href="#">Ayuda</a></li>
+                    <li><a class="footer__link" href="#">Contactanos</a></li>
+                    <li><a class="footer__link" href="#">Rembolsos</a></li>
+                </ul>
+                <ul>
+                    <li><a class="footer__link" href="#">Garantias</a></li>
+                    <li><a class="footer__link" href="#">Novedades</a></li>
+                    <li><a class="footer__link" href="#">Tiendas</a></li>
+                    <li><a class="footer__link" href="#">Cupones</a></li>
+                </ul>
+            </div>
+            
+            <form action="" class="footer__formulario">
+                <div class="spinner footer__spiner">
+                    <div class="rect1"></div>
+                    <div class="rect2"></div>
+                    <div class="rect3"></div>
+                    <div class="rect4"></div>
+                    <div class="rect5"></div>
+                </div>
+                <input type="email" class="footer__email" id="email" placeholder="Suscribete Con tu email">
+                <div class="footer__mensaje"></div>
+                <button class="footer__boton">Suscribete</button>
+            </form>
+            <p class="footer__bottom"><i class='bx bx-code-alt'></i> Desarrollado por white Code</p>
+        </div>
+    </footer>
+
+
+    <!-- js -->
+    <script src="src/js/data.js"></script>
+    <script src="src/js/app.js"></script>
+</body>
+</html>
